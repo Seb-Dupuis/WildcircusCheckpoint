@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}" href="../static/style.css">
+
+    <!-- Import Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css">
+
+    <title>Sébastien Dupuis</title>
+</head>
+
+<body id="top">
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+            <a class="navbar-brand" href="#">Sébastien Dupuis</a>
+            <!--             <button class="btn-about btn ml-auto mr-1">About Me</button>
+ --> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-grow-0 justify-content-end w-100" id="navbarSupportedContent">
+                <ul class="navbar-nav text-right">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#top">Accueil</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#about">À propos</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#contact">Contacte</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" th:href="@{/admin}">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="pres" class="presentation">
+        <div class="d-flex justify-content-center ">
+            <img class="img-fluid img-circle rounded-circle mt-5" src="../img/profil.jpg" alt="photo de profil">
+        </div>
+        <div class=" d-flex justify-content-center">
+            <pre>
+                <p>
+HELLO ____________________________________________
+
+I AM SEBASTIEN DUPUIS
+
+Développer Web
+                </p>
+            </pre>
+        </div>
+    </section>
+    <portfolio id="portfolio" class="container">
+        <h2 class="page-section-heading text-center text-uppercase mb-0">Portfolio</h2>
+        <div class="custom-underligne">
+            <div class="custom-underligne-line"></div>
+            <div class="custom-uderlign-icon">
+                <i class="fas fa-star"> </i>
+            </div>
+            <div class="custom-underligne-line"></div>
+        </div>
+
+        <div class="row mr-0">
+
+
+            <div th:each="project :${projects} " class="col-xl-4 col-sm-12  d-flex justify-content-center">
+                <div th:if="${project.active}" class="main">
+
+                    <div class="view view-second">
+                        <img th:src="${project.image}" />
+                        <div class="mask"></div>
+                        <div class="content">
+                            <h2 th:text="${project.titre}"></h2>
+                            <p th:text="${project.description}"></p>
+                            <a th:href="${project.url}" class="info">Github</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </portfolio>
+    <section class="about text-white">
+        <h2 class="page-section-heading text-center text-uppercase mb-0 pt-4">À propos</h2>
+        <div class="custom-underligne">
+            <div class="custom-underligne-line"></div>
+            <div class="custom-uderlign-icon">
+                <i class="fas fa-star"> </i>
+            </div>
+            <div class="custom-underligne-line"></div>
+        </div>
+        <div id="about" class="container">
+            <div class="row">
+
+                <div class="discover col-xl-6 col-sm-12">
+                    <p>Après une vie de cuisinier, je me suis lancé dans une reconversion professionnelle par le biais
+                        d'une formation intensive de développeur web à la Wild Code School, une formation de 5 mois en
+                        école avec, durant cette partie en école trois projets réaliser en groupe dont un projet
+                        réaliser avec un client suivant son cahier des charges, et 4 mois en entreprise, dans un milieu
+                        professionnel.</p>
+                </div>
+                <div class="discover col-xl-6 col-sm-12">
+                    <p>En dehors des différents languages que j'ai pu apprendre durant la formation (dont le Java,
+                        Mysql; HTML, Css, Javascript et PHP), j'ai beaucoup appris à savoir penser comme un développeur,
+                        comment gérer un projet, notamment avec la méthode SCRUM et comment ce tenir à jour par rapport
+                        au Web en règle général pour ne pas rester bloqué sur une seule connaissance et toujours être
+                        dans l'air du temps.</p>
+                </div>
+                <div class="col text-center mt-4">
+                    <a th:href="@{../downloads/CV.pdf}" download="CVSebastienDupuis"
+                        class="cv btn btn-xl btn-outline-light mb-4"><i class="fas fa-download mr-2"></i> Download
+                        CV
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section class="page-section" id="contact">
+        <div class="container">
+
+            <!-- Contact Section Heading -->
+            <h2 class="page-section-heading text-center text-uppercase  mb-0 pt-4">Contact</h2>
+            <div class="custom-underligne">
+                <div class="custom-underligne-line"></div>
+                <div class="custom-uderlign-icon">
+                    <i class="fas fa-star"> </i>
+                </div>
+                <div class="custom-underligne-line"></div>
+            </div>
+
+            <!-- Contact Section Form -->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <form method="post">
+                            <label>Email</label>
+                            <input type="email" name="email" required><br>
+                            <label>Message</label>
+                            <textarea name="message" required></textarea><br>
+                            <input type="submit">
+                        </form>
+                       
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer text-center pt-4 pb-2">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+
+                <!-- Footer Location -->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Location</h4>
+                    <p class="lead mb-0">3 rue Dumont D'Urville
+                        <br>Reims, 51100</p>
+                </div>
+
+                <!-- Footer Social Icons -->
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4">Around the Web</h4>
+                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                        <i class="fab fa-fw fa-facebook-f"></i>
+                    </a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                        <i class="fab fa-fw fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                        <i class="fab fa-fw fa-linkedin-in"></i>
+                    </a>
+                    <a class="btn btn-outline-light btn-social mx-1" href="#">
+                        <i class="fab fa-fw fa-dribbble"></i>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script th:src="@{https://kit.fontawesome.com/e30c9325cd.js}" crossorigin="anonymous"></script>
+    <script th:src="@{https://code.jquery.com/jquery-3.3.1.slim.min.js}"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js}"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script th:src="@{https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js}"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script th:src="@{../jqBootstrapValidation.js}"></script>
+    <script th:src="@{../contact_me.js}"></script>
+</body>
+
+</html>
